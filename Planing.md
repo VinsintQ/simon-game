@@ -2,7 +2,9 @@
 
 **Pseudocode**
 
-1- 4 colored boxes will be shown(each box has a unique color and sound).
+1- 9 colored boxes will be shown(each box has a unique color and sound).
+
+- we will have 2 levels easy and hard in the hard level all boxes will have the same color and same audio
 
 2- a function will create a sequence of lights will be shine and requires a user to repeat the sequence(sequence start from 1 until infiniti).
 
