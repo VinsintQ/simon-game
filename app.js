@@ -1,5 +1,5 @@
 //variables
-
+let index = 0;
 const boxs = [
   "#box1",
   "#box2",
@@ -20,17 +20,38 @@ const buttons = document.querySelectorAll(".row>div");
 //functions
 
 function generateSequence() {
-  const random = Math.ceil(Math.random() * 9);
+  const random = Math.floor(Math.random() * 9);
   compSeq.push(boxs[random]);
+  showSequence();
 }
 function showSequence() {
   const lastelem = compSeq[compSeq.length - 1];
-  const last = document.querySelector(lastelem).classList.add("shine");
+  const last = document.querySelector(lastelem);
+
+  last.classList.add("shine");
+  setInterval(() => {
+    last.classList.remove("shine");
+  }, 150);
 }
-generateSequence(); //
-showSequence();
+
+function compareSeq(user, comp) {
+  if (playerchoices[index] == compSeq[index]) {
+    index++;
+    if (index >= compSeq.length) {
+      generateSequence();
+      index = 0;
+      playerchoices.length = 0;
+    }
+  } else {
+    alert("wrong");
+  }
+}
+generateSequence();
 
 //ading event listeners to the buttons
 buttons.forEach((box) => {
-  box.addEventListener("click", () => {});
+  box.addEventListener("click", (event) => {
+    playerchoices.push(`#${event.target.id}`);
+    compareSeq();
+  });
 });
