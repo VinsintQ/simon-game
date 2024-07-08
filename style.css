@@ -8,8 +8,9 @@ font-family: 'Courier New', Courier, monospace;
 
 .container{
 display: flex;
-justify-content:space-around ;
+justify-content:center ;
 flex-wrap: wrap;
+/* flex-direction: column; */
 }
 h1{
 
@@ -26,13 +27,14 @@ h3,h4{
     justify-content: space-around;
 }
 .row{
-width: 700px;
+ width: 900px;
 
 }
+
 .box{
 
     
- margin: 25px;
+ margin: 10px;
  display: inline-block;
  height: 120px;
  width: 120px;
