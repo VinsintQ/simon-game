@@ -1,4 +1,18 @@
 //variables
+let position;
+const wrong = new Audio("sounds/wrong.mp3");
+const Audios = [
+  "sounds/box1.mp3",
+  "sounds/box2.mp3",
+  "sounds/box3.mp3",
+  "sounds/box4.mp3",
+  "sounds/box5.mp3",
+  "sounds/box6.mp3",
+  "sounds/box7.mp3",
+  "sounds/box8.mp3",
+  "sounds/box9.mp3",
+];
+
 let index = 0;
 const boxs = [
   "#box1",
@@ -13,45 +27,74 @@ const boxs = [
 ];
 const playerchoices = [];
 const compSeq = [];
-
+let GameRuning = false;
 // the query selectors
 const buttons = document.querySelectorAll(".row>div");
-
+const body = document.querySelector("body");
+const msg = document.querySelector("h3");
+const lvl = document.querySelector("h4");
 //functions
+function startGame() {
+  if (GameRuning == false) {
+    GameRuning = true;
+    index = 0;
+    playerchoices.length = 0;
+    compSeq.length = 0;
+    msg.innerText = "Game is runing";
+    generateSequence();
+  }
+}
 
 function generateSequence() {
   const random = Math.floor(Math.random() * 9);
   compSeq.push(boxs[random]);
+  var sound = new Audio(Audios[random]);
+  sound.play();
   showSequence();
+  level();
 }
 function showSequence() {
   const lastelem = compSeq[compSeq.length - 1];
   const last = document.querySelector(lastelem);
-
   last.classList.add("shine");
-  setInterval(() => {
+  setTimeout(() => {
     last.classList.remove("shine");
-  }, 150);
+  }, 350);
 }
 
-function compareSeq(user, comp) {
+function compareSeq() {
   if (playerchoices[index] == compSeq[index]) {
     index++;
+    var sound = new Audio("sounds/" + position + ".mp3");
+    sound.play();
     if (index >= compSeq.length) {
-      generateSequence();
+      setTimeout(generateSequence, 400);
+
       index = 0;
       playerchoices.length = 0;
     }
   } else {
-    alert("wrong");
+    wrong.play();
+    msg.textContent = "You Lost, press any key to restart";
+    GameRuning = false;
   }
 }
-generateSequence();
-
-//ading event listeners to the buttons
+function level() {
+  const level = compSeq.length;
+  msg.textContent = `level : ${level}`;
+}
+//ading event listeners
+body.addEventListener("keydown", startGame);
 buttons.forEach((box) => {
   box.addEventListener("click", (event) => {
+    position = event.target.id;
+
     playerchoices.push(`#${event.target.id}`);
+    event.target.classList.add("shine");
+    setTimeout(() => {
+      event.target.classList.remove("shine");
+    }, 100);
+
     compareSeq();
   });
 });
