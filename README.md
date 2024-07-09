@@ -1,4 +1,4 @@
-# The Simon Game
+# Simon Game
 
 **Game Description:**
 A Simon game with 9 circles is an extension of the classic Simon game, which traditionally uses 4 colored buttons.The player must repeat increasingly complex sequences of lights and sounds.
