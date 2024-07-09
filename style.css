@@ -101,10 +101,7 @@ background-color: khaki;
 
   }
 
-.box:hover{
-border:0px ;
 
-}  
 
 @media (max-width:420px) {
     .box{
