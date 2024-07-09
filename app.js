@@ -1,5 +1,6 @@
 //variables
 let position;
+let clicked = false;
 const wrong = new Audio("sounds/wrong.mp3");
 const Audios = [
   "sounds/box1.mp3",
@@ -115,8 +116,9 @@ function updateHighScoreDisplay() {
 body.addEventListener("keydown", startGame);
 buttons.forEach((box) => {
   box.addEventListener("click", (event) => {
-    if (GameRuning == true) {
+    if (GameRuning == true && clicked == false) {
       position = event.target.id;
+      clicked = true;
       playerchoices.push(`#${event.target.id}`);
       event.target.classList.add("shine");
       setTimeout(() => {
@@ -124,6 +126,9 @@ buttons.forEach((box) => {
       }, 200);
 
       compareSeq();
+      setTimeout(() => {
+        clicked = false;
+      }, 500);
     }
   });
 });
