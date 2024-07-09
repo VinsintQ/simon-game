@@ -68,7 +68,7 @@ function compareSeq() {
     var sound = new Audio("sounds/" + position + ".mp3");
     sound.play();
     if (index >= compSeq.length) {
-      setTimeout(generateSequence, 400);
+      setTimeout(generateSequence, 600);
 
       index = 0;
       playerchoices.length = 0;
@@ -87,14 +87,24 @@ function level() {
 body.addEventListener("keydown", startGame);
 buttons.forEach((box) => {
   box.addEventListener("click", (event) => {
-    position = event.target.id;
+    if (GameRuning == true) {
+      position = event.target.id;
 
-    playerchoices.push(`#${event.target.id}`);
-    event.target.classList.add("shine");
-    setTimeout(() => {
-      event.target.classList.remove("shine");
-    }, 100);
+      playerchoices.push(`#${event.target.id}`);
+      event.target.classList.add("shine");
+      setTimeout(() => {
+        event.target.classList.remove("shine");
+      }, 200);
 
-    compareSeq();
+      compareSeq();
+    }
   });
 });
+
+document.querySelector("h1").addEventListener("dblclick", (event) => {
+  document.querySelector("body").classList.toggle("white");
+  document.querySelector("h1").classList.toggle("white");
+  document.querySelector("h3").classList.toggle("white");
+});
+
+ondblclick = (event) => {};
