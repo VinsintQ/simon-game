@@ -5,6 +5,13 @@ display: block;
 text-align: center;
 font-family: 'Courier New', Courier, monospace;
 }
+button{
+    font-family: 'Courier New', Courier, monospace;
+     height: 60px;
+     width: 120;
+     border-radius: 30px;
+     margin-top: 20px;
+}
 .white{
 background-color:white ;
 color: black;
@@ -98,10 +105,9 @@ color: white;
 
   }
 
-.box:hover{
-border:0px ;
 
-}  
+} 
+ 
 button {
     visibility: hidden;
 }
