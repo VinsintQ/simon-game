@@ -88,6 +88,10 @@ background-color:springgreen;
 background-color: khaki;
 
 }
+h6{
+color: white;
+    
+}
 .shine {
     box-shadow: 0 0 50px rgb(255, 0, 0);
     border: 10px solid red ;
@@ -98,3 +102,21 @@ background-color: khaki;
 border:0px ;
 
 }  
+
+@media (max-width:450px) {
+    .box{
+
+       
+         height: 120px;
+         width: 120px;
+        
+        
+        }   
+
+    .row{
+        width:120px ;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }    
+}

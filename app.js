@@ -28,19 +28,29 @@ const boxs = [
 const playerchoices = [];
 const compSeq = [];
 let GameRuning = false;
+let score = 0;
+let highScore = 0;
+
 // the query selectors
 const buttons = document.querySelectorAll(".row>div");
 const body = document.querySelector("body");
 const msg = document.querySelector("h3");
 const lvl = document.querySelector("h4");
+
+if (localStorage.getItem("highScore")) {
+  highScore = localStorage.getItem("highScore");
+  updateHighScoreDisplay();
+}
+
 //functions
 function startGame() {
   if (GameRuning == false) {
     GameRuning = true;
     index = 0;
+    score = 0;
     playerchoices.length = 0;
     compSeq.length = 0;
-    msg.innerText = "Game is runing";
+    msg.innerText = "Game is running";
     generateSequence();
   }
 }
@@ -53,6 +63,7 @@ function generateSequence() {
   showSequence();
   level();
 }
+
 function showSequence() {
   const lastelem = compSeq[compSeq.length - 1];
   const last = document.querySelector(lastelem);
@@ -68,10 +79,11 @@ function compareSeq() {
     var sound = new Audio("sounds/" + position + ".mp3");
     sound.play();
     if (index >= compSeq.length) {
+      score++;
       setTimeout(generateSequence, 600);
-
       index = 0;
       playerchoices.length = 0;
+      updateHighScore();
     }
   } else {
     wrong.play();
@@ -79,23 +91,37 @@ function compareSeq() {
     GameRuning = false;
   }
 }
+
 function level() {
   const level = compSeq.length;
-  msg.textContent = `level : ${level}`;
+  msg.textContent = `Level: ${level}`;
 }
-//ading event listeners
+
+function updateHighScore() {
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem("highScore", highScore);
+    updateHighScoreDisplay();
+  }
+}
+
+function updateHighScoreDisplay() {
+  const highScoreDisplay = document.querySelector("h6");
+
+  highScoreDisplay.textContent = `High Score: ${highScore}`;
+}
+
+// Adding event listeners
 body.addEventListener("keydown", startGame);
 buttons.forEach((box) => {
   box.addEventListener("click", (event) => {
     if (GameRuning == true) {
       position = event.target.id;
-
       playerchoices.push(`#${event.target.id}`);
       event.target.classList.add("shine");
       setTimeout(() => {
         event.target.classList.remove("shine");
       }, 200);
-
       compareSeq();
     }
   });
@@ -105,6 +131,7 @@ document.querySelector("h1").addEventListener("dblclick", (event) => {
   document.querySelector("body").classList.toggle("white");
   document.querySelector("h1").classList.toggle("white");
   document.querySelector("h3").classList.toggle("white");
+  document.querySelector("h6").classList.toggle("white");
 });
-
+document.querySelector("h3").addEventListener("click", startGame);
 ondblclick = (event) => {};
