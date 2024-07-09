@@ -102,7 +102,9 @@ color: white;
 border:0px ;
 
 }  
-
+button {
+    visibility: hidden;
+}
 @media (max-width:450px) {
     .box{
 
@@ -118,5 +120,13 @@ border:0px ;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-    }    
+    } 
+    button{
+  visibility: visible;
+  border: 5px solid black;
+  border-radius: 30px;
+  height: 60px;
+  width: 120px;
+  font-family: 'Courier New', Courier, monospace;
+    }   
 }

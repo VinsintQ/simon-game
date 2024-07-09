@@ -133,6 +133,4 @@ document.querySelector("h1").addEventListener("dblclick", (event) => {
   document.querySelector("h3").classList.toggle("white");
   document.querySelector("h6").classList.toggle("white");
 });
-document.querySelector("h3").addEventListener("click", startGame);
-ondblclick = (event) => {};
-// something added here
+document.querySelector("button").addEventListener("click", startGame);
