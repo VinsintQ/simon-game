@@ -122,6 +122,7 @@ buttons.forEach((box) => {
       setTimeout(() => {
         event.target.classList.remove("shine");
       }, 200);
+
       compareSeq();
     }
   });
