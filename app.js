@@ -135,3 +135,4 @@ document.querySelector("h1").addEventListener("dblclick", (event) => {
 });
 document.querySelector("h3").addEventListener("click", startGame);
 ondblclick = (event) => {};
+// something added here
