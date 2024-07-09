@@ -106,5 +106,3 @@ document.querySelector("h1").addEventListener("dblclick", (event) => {
   document.querySelector("h1").classList.toggle("white");
   document.querySelector("h3").classList.toggle("white");
 });
-
-ondblclick = (event) => {};
