@@ -10,10 +10,14 @@ A Simon game with 9 circles is an extension of the classic Simon game, which tra
 - CSS
 - JavaScript
 
-## Game instruction
+## Getting Started
 
-The game starts with a single circle lighting up and playing its associated sound.the player press the lighted circle .then The game adds another circle to the sequence, The player must repeat the sequence by clicking on the circles in the correct order.The project itself was deployed and can be viewed
-[here](https://vinsintq.github.io/simon-game/) .
+- The game starts with a single circle lighting up and playing its associated sound.the player press the lighted circle .then The game adds another circle to the sequence, The player must repeat the sequence by clicking on the circles in the correct order.
+
+* planning.md file was used to keep track of development progress and can be viewed [here](https://github.com/VinsintQ/simon-game/blob/main/planning.md)
+
+- The project itself was deployed and can be viewed
+  [here](https://vinsintq.github.io/simon-game/) .
 
 ### **_some images from the game :_**
 
