@@ -10,26 +10,45 @@
   </head>
 
   <body>
-    <h6>High Score :</h6>
+    <nav>
+      <div>
+        <img id="menu" src="images/menu.png" alt="menu" />
+        <img id="theme" src="images/light.png" alt="change theme" />
+      </div>
+
+      <h6>High Score :</h6>
+    </nav>
+
     <h1 draggable="true">The Simon Game</h1>
-    <h3>Prees any key to start</h3>
+    <h3 class="desktop">Prees any key to start</h3>
 
-    <div class="container">
-      <div class="row">
-        <div id="box1" class="box"></div>
-        <div id="box2" class="box"></div>
-        <div id="box3" class="box"></div>
+    <h3 id="Mobile">prees start Game</h3>
+    <div class="content">
+      <div class="side">
+        on computers press any key to start the game , on mobiles press start
+        button <br />
+        The game starts with a single circle lighting up and playing its
+        associated sound.the player should press the lighted circle .then
+        another circle lighting up , The player must repeat the sequence by
+        clicking on the circles in the correct order.
       </div>
+      <div class="container">
+        <div class="row">
+          <div id="box1" class="box"></div>
+          <div id="box2" class="box"></div>
+          <div id="box3" class="box"></div>
+        </div>
 
-      <div class="row">
-        <div id="box4" class="box"></div>
-        <div id="box5" class="box"></div>
-        <div id="box6" class="box"></div>
-      </div>
-      <div class="row">
-        <div id="box7" class="box"></div>
-        <div id="box8" class="box"></div>
-        <div id="box9" class="box"></div>
+        <div class="row">
+          <div id="box4" class="box"></div>
+          <div id="box5" class="box"></div>
+          <div id="box6" class="box"></div>
+        </div>
+        <div class="row">
+          <div id="box7" class="box"></div>
+          <div id="box8" class="box"></div>
+          <div id="box9" class="box"></div>
+        </div>
       </div>
     </div>
     <button>Start Game</button>
