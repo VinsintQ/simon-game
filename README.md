@@ -16,8 +16,7 @@ A Simon game with 9 circles is an extension of the classic Simon game, which tra
 
 * planning.md file was used to keep track of development progress and can be viewed [here](https://github.com/VinsintQ/simon-game/blob/main/planning.md)
 
-- The project itself was deployed and can be viewed
-  [here](https://vinsintq.github.io/simon-game/) .
+- The project itself was deployed and can be viewed [here](https://vinsintq.github.io/simon-game/) .
 
 ### **_some images from the game :_**
 
@@ -28,6 +27,7 @@ A Simon game with 9 circles is an extension of the classic Simon game, which tra
 ### **_Future Updates_**
 
 - [x] DarkMode and LightMode
+- [ ] adding Hard level (all circles have the same color and sound)
 
 ---
 
