@@ -2,13 +2,11 @@
 
 **Pseudocode**
 
-1- 9 colored boxes will be shown(each box has a unique color and sound).
-
-- we will have 2 levels easy and hard in the hard level all boxes will have the same color and same audio
+1- 9 colored circles will be shown(each circle has a unique color and sound).
 
 2- a function will create a sequence of lights will be shine and requires a user to repeat the sequence(sequence start from 1 until infiniti).
 
-- using math.ranndom i will create a random num from 0 to 3 each number refer to specific box
+- using math.ranndom i will create a random num from 0 to 8 each number refer to specific box
 
 3- the sequence will be stored in an array
 
@@ -26,7 +24,7 @@
 
 7- player will lose when player miss a step in the sequence.
 
--the page will show red light and message you lose
+-the page will play audio and show message you lose
 
 **user story**
 

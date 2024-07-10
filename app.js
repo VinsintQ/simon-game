@@ -1,6 +1,11 @@
 //variables
 let position;
-let clicked = false;
+let index = 0;
+const playerchoices = [];
+const compSeq = [];
+let GameRuning = false;
+let score = 0;
+let highScore = 0;
 const wrong = new Audio("sounds/wrong.mp3");
 const Audios = [
   "sounds/box1.mp3",
@@ -13,8 +18,6 @@ const Audios = [
   "sounds/box8.mp3",
   "sounds/box9.mp3",
 ];
-
-let index = 0;
 const boxs = [
   "#box1",
   "#box2",
@@ -26,23 +29,16 @@ const boxs = [
   "#box8",
   "#box9",
 ];
-const playerchoices = [];
-const compSeq = [];
-let GameRuning = false;
-let score = 0;
-let highScore = 0;
-
 // the query selectors
 const buttons = document.querySelectorAll(".row>div");
 const body = document.querySelector("body");
 const msg = document.querySelector("h3");
 const lvl = document.querySelector("h4");
-
+const mobilemsg = document.querySelector("#Mobile");
 if (localStorage.getItem("highScore")) {
   highScore = localStorage.getItem("highScore");
   updateHighScoreDisplay();
 }
-
 //functions
 function startGame() {
   if (GameRuning == false) {
@@ -51,11 +47,10 @@ function startGame() {
     score = 0;
     playerchoices.length = 0;
     compSeq.length = 0;
-    msg.innerText = "Game is running";
+
     generateSequence();
   }
 }
-
 function generateSequence() {
   const random = Math.floor(Math.random() * 9);
   compSeq.push(boxs[random]);
@@ -64,7 +59,6 @@ function generateSequence() {
   showSequence();
   level();
 }
-
 function showSequence() {
   const lastelem = compSeq[compSeq.length - 1];
   const last = document.querySelector(lastelem);
@@ -73,7 +67,7 @@ function showSequence() {
     last.classList.remove("shine");
   }, 350);
 }
-
+let clicked = false;
 function compareSeq() {
   if (playerchoices[index] == compSeq[index]) {
     index++;
@@ -81,7 +75,11 @@ function compareSeq() {
     sound.play();
     if (index >= compSeq.length) {
       score++;
+      clicked = true;
       setTimeout(generateSequence, 600);
+      setTimeout(() => {
+        clicked = false;
+      }, 800);
       index = 0;
       playerchoices.length = 0;
       updateHighScore();
@@ -89,15 +87,16 @@ function compareSeq() {
   } else {
     wrong.play();
     msg.textContent = "You Lost, press any key to restart";
+    mobilemsg.textContent = "You Lost, press start Game to restart";
     GameRuning = false;
   }
 }
-
 function level() {
   const level = compSeq.length;
   msg.textContent = `Level: ${level}`;
-}
 
+  mobilemsg.innerText = `Level: ${level}`;
+}
 function updateHighScore() {
   if (score > highScore) {
     highScore = score;
@@ -105,38 +104,36 @@ function updateHighScore() {
     updateHighScoreDisplay();
   }
 }
-
 function updateHighScoreDisplay() {
   const highScoreDisplay = document.querySelector("h6");
 
   highScoreDisplay.textContent = `High Score: ${highScore}`;
 }
-
 // Adding event listeners
 body.addEventListener("keydown", startGame);
 buttons.forEach((box) => {
   box.addEventListener("click", (event) => {
     if (GameRuning == true && clicked == false) {
       position = event.target.id;
-      clicked = true;
       playerchoices.push(`#${event.target.id}`);
       event.target.classList.add("shine");
       setTimeout(() => {
         event.target.classList.remove("shine");
       }, 200);
-
       compareSeq();
-      setTimeout(() => {
-        clicked = false;
-      }, 500);
     }
   });
 });
 
-document.querySelector("h1").addEventListener("dblclick", (event) => {
+document.querySelector("#theme").addEventListener("click", (event) => {
   document.querySelector("body").classList.toggle("white");
   document.querySelector("h1").classList.toggle("white");
   document.querySelector("h3").classList.toggle("white");
-  document.querySelector("h6").classList.toggle("white");
+  document.querySelector(".side").classList.toggle("white");
+  document.querySelector("#Mobile").classList.toggle("white");
+  document.querySelector(".mobDesc").classList.toggle("white");
 });
 document.querySelector("button").addEventListener("click", startGame);
+document.querySelector("img").addEventListener("click", () => {
+  document.querySelector(".side").classList.toggle("show");
+});

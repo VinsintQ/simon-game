@@ -1,8 +1,32 @@
 body{
-    background-color: rgb(33, 33, 33);
+    background-color: rgb(49, 49, 49);
   display: block;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
+  margin: 0px;
+  }
+  .content{
+    display: flex;
+    justify-content: center;
+    margin-right: 7px;
+  }
+  .side{
+    
+    margin: 0px;
+    width: 270px;
+    display: none;
+    color: aliceblue;
+    position:fixed;
+    top: 45px;
+    left:10px;
+    text-align: center;
+  }
+  .show{
+    display: inline-block;
+  }
+  img{
+    margin-top: 2px;
+    width:35px ;
   }
   button{
       visibility:hidden;
@@ -11,6 +35,9 @@ body{
        width: 120;
        border-radius: 30px;
        margin-top: 20px;
+  }
+  #Mobile{
+    visibility: hidden;
   }
   .white{
   background-color:white ;
@@ -31,6 +58,7 @@ body{
   h3,h4{
   
      color: aliceblue; 
+
   }
   
   #header{
@@ -39,7 +67,7 @@ body{
       justify-content: space-around;
   }
   .row{
-   width: 900px;
+   width:100%;
   
   }
   
@@ -97,6 +125,7 @@ body{
   }
   h6{
   color: white;
+   margin: 10px; 
       
   }
   .shine {
@@ -111,7 +140,31 @@ body{
   button {
       visibility: hidden;
   }
-  @media (max-width:450px) {
+  nav{
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    background-color: black;
+    
+  }
+  
+ 
+  .show {
+
+    display:inline-block;
+  }
+  .mobDesc{
+    display: none;
+  }
+  @media (max-width:460px) {
+  
+    .desktop{
+        display: none;
+    }
+    #Mobile{
+        visibility: visible;
+    
+    }
       .box{
   
          
@@ -134,5 +187,9 @@ body{
     height: 60px;
     width: 120px;
     font-family: 'Courier New', Courier, monospace;
-      }   
+      }  
+    #menu{
+        display: none;
+    }
+
   }
