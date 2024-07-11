@@ -1,5 +1,9 @@
 # **_Simon Game_**
 
+### by : Mueen Ali
+
+### Date: 10/7/2024
+
 ## **_Game Description:_**
 
 A Simon game with 9 circles is an extension of the classic Simon game, which traditionally uses 4 colored buttons.The player must repeat increasingly complex sequences of lights and sounds.
